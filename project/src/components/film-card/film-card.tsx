@@ -13,26 +13,23 @@
 }*/
 
 //это жалкая попытка передать в карточки оазные данные
-/*type Film = {
+type Film = {
   image: string,
   alt: string,
   title: string
-}*/
-//type FilmCards = Film[];
-
+}
 
 type Props = {
-  filmEl:{
-    image: string,
-    alt: string,
-    title: string
-  }
+  filmEl:Film
 }
+
+//попытка итерироваться по массиву объектов с данными фильмов прямо в компоненте - не удалась, т.к. функция возврвщвлв
+//массив JSX.Element[], а так низзя, решение не дожала, интересно, как можно это сделать
+
 /*type Props = {
   films:Film[]
 }*/
-//присвоила  films тип any потому, что не знаю, какой тип, а линтер съел меня
-//key в теге article - для линтера, не знаю, зачем он, но линтер отстал
+
 /*function FilmCard({films}: Props): JSX.Element[] {
   const filmsCard = films.map((film:Film) =>
     (
@@ -49,27 +46,9 @@ type Props = {
   return filmsCard;
 }*/
 
-
-/*function FilmCard({films}: Props): string {
-  const filmsCard: JSX.Element[] = [];
-  films.forEach((film:Film) =>
-    filmsCard.push(
-      <article key="" className="small-film-card catalog__films-card">
-        <div className="small-film-card__image">
-          <img src={film.image} alt={film.alt} width="280" height="175"/>
-        </div>
-        <h3 className="small-film-card__title">
-          <a className="small-film-card__link" href="film-page.html">{film.title}</a>
-        </h3>
-      </article>
-    )
-  );
-  return (filmsCard.join(""));
-}*/
-
 function FilmCard({filmEl}: Props): JSX.Element {
   return (
-    <article key="" className="small-film-card catalog__films-card">
+    <article className="small-film-card catalog__films-card">
       <div className="small-film-card__image">
         <img src={filmEl.image} alt={filmEl.alt} width="280" height="175"/>
       </div>

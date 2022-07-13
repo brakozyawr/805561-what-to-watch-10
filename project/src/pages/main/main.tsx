@@ -102,8 +102,13 @@ const FilmCardsData:FilmCards = [
   }
 ];
 
+type Props = {
+  title:string,
+  genre:string,
+  year:string
+}
 
-function MainScreen(): JSX.Element {
+function MainScreen({title, genre, year}:Props): JSX.Element {
   return (
     <>
       <section className="film-card">
@@ -141,10 +146,10 @@ function MainScreen(): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="film-card__title">{title}</h2>
               <p className="film-card__meta">
-                <span className="film-card__genre">Drama</span>
-                <span className="film-card__year">2014</span>
+                <span className="film-card__genre">{genre}</span>
+                <span className="film-card__year">{year}</span>
               </p>
 
               <div className="film-card__buttons">
@@ -205,9 +210,8 @@ function MainScreen(): JSX.Element {
           </ul>
 
           <div className="catalog__films-list">
-            {//<FilmCard films={FilmCardsData}  />
-            }
-            {FilmCardsData.map((film:Film) => <FilmCard key="" filmEl={film} />)}
+            {/*<FilmCard films={FilmCardsData}  /> линтер ругался, что нельзя сюда JSX.Element[]*/}
+            {FilmCardsData.map((film:Film) => <FilmCard key={film.title} filmEl={film} />)}
           </div>
 
           <div className="catalog__more">

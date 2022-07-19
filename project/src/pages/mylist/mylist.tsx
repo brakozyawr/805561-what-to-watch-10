@@ -1,4 +1,4 @@
-const Mylist = (): JSX.Element => (
+const MyList = (): JSX.Element => (
   <div className="user-page">
     <header className="page-header user-page__head">
       <div className="logo">
@@ -128,4 +128,4 @@ const Mylist = (): JSX.Element => (
 );
 
 
-export default Mylist;
+export default MyList;
